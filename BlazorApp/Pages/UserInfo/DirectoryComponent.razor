@@ -1,0 +1,24 @@
+﻿@page "/directory"
+
+<h3>Directory</h3>
+
+
+<div class="row">
+    @foreach (var person in People)
+    {
+        <div class="col-4">
+            <PersonComponent FirstName="@person.FirstName" LastName="@person.LastName">
+                <AddressFragment>
+                    @if (person.Adresses.Count > 0)
+                    {
+                        <h3>Addresses</h3>
+                    }
+                    @foreach (var Address in person.Adresses)
+                    {
+                        <AddressComponent Address="@Address"></AddressComponent>
+                    }
+                </AddressFragment>
+            </PersonComponent>
+        </div>
+    }
+</div>
